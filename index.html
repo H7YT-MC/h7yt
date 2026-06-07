@@ -227,9 +227,19 @@
             box-shadow: 0 12px 24px rgba(88, 101, 242, 0.35);
         }
 
-        /* 最下部に追加する、長めのURL専用の間隔微調整クラス */
-        .mt-25 {
-            margin-top: 25px;
+        /* 🖥️ iframe（埋め込み画面）用のスタイル */
+        .embed-container {
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .embed-frame {
+            width: 100%;
+            height: 450px; /* 埋め込み画面の高さ（お好みに合わせて変更してください） */
+            border: 1px solid #e2e8f0;
+            border-radius: 16px; /* 全体の雰囲気に合わせて角を丸く */
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         /* 📱 【スマホ版：縦向き画面（幅768px以下）用のスタイル上書き】 */
@@ -277,6 +287,11 @@
             .tier-info-cell {
                 display: block;
                 padding-left: 0;
+            }
+
+            /* スマホでは埋め込みの高さを少しコンパクトに */
+            .embed-frame {
+                height: 350px;
             }
         }
     </style>
@@ -336,17 +351,8 @@
                 discord
             </a>
 
-            <div class="tier-row mt-25">
-                <div class="tier-badge-cell">
-                    <span class="tier-badge info">URL</span>
-                </div>
-                <div class="tier-info-cell">
-                    <div class="tier-label">
-                        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-                        サブドメイン
-                    </div>
-                    <div class="tier-value">https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/</div>
-                </div>
+            <div class="embed-container">
+                <iframe class="embed-frame" src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/" title="埋め込みコンテンツ" allowfullscreen></iframe>
             </div>
         </div>
     </div>
