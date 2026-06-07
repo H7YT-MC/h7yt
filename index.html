@@ -10,27 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=VT323&display=swap" rel="stylesheet">
 
     <style>
-        /* グローバルリセット */
+        /* グローバルリreset */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* フォント指定：
-               英数字にはマイクラ公式に近い「VT323」、日本語には綺麗なドット絵風の「DotGothic16」を適用 
-            */
             font-family: 'VT323', 'DotGothic16', monospace, sans-serif;
         }
 
         body {
-            background-color: #f8fafc; /* 白ベースの背景 */
+            background-color: #f8fafc;
             color: #0f172a;
             min-height: 100vh;
             padding: 40px 20px;
         }
 
-        /* メインコンテナ：PCでは横並びのベースとなる設定 */
+        /* メインコンテナ */
         .mctiers-container {
-            display: table; /* レイアウトを崩さず綺麗にマルチデバイス対応させる構造 */
+            display: table;
             width: 100%;
             max-width: 960px;
             margin: 0 auto;
@@ -41,7 +38,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
         }
 
-        /* 💻 【PC版：左サイドバー（アバターエリア）】 */
+        /* 左サイドバー */
         .player-sidebar {
             display: table-cell;
             width: 40%;
@@ -53,7 +50,6 @@
             border-right: 1px solid #e2e8f0;
         }
 
-        /* 指定の薄い青（#ada5fa）をアバターの背景に配置 */
         .avatar-glow {
             position: absolute;
             width: 200px;
@@ -69,7 +65,6 @@
             z-index: 1;
         }
 
-        /* 3Dアバターアイコン */
         .player-avatar {
             width: 190px;
             height: 190px;
@@ -81,11 +76,11 @@
         }
 
         .mctiers-container:hover .player-avatar {
-            transform: translateY(-6px) scale(1.03); /* PCホバー時にフワッと動く */
+            transform: translateY(-6px) scale(1.03);
         }
 
         .player-name {
-            font-size: 36px; /* ドットフォントに合わせて少し大きめに調整 */
+            font-size: 36px;
             font-weight: 800;
             margin-top: 24px;
             position: relative;
@@ -93,7 +88,7 @@
             letter-spacing: 1px;
         }
 
-        /* 💻 【PC版：右メインコンテンツ】 */
+        /* 右メインコンテンツ */
         .content-main {
             display: table-cell;
             width: 60%;
@@ -102,7 +97,7 @@
         }
 
         .section-title {
-            font-size: 18px; /* ドットフォント用に調整 */
+            font-size: 18px;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #64748b;
@@ -110,7 +105,7 @@
             margin-bottom: 20px;
         }
 
-        /* mctiers風リスト＆行パーツ */
+        /* 各リンク行（正しくクリックできるようにaタグとして調整） */
         .tier-row {
             display: table;
             width: 100%;
@@ -120,11 +115,12 @@
             padding: 18px 24px;
             margin-bottom: 16px;
             transition: all 0.25s ease;
-            text-decoration: none;
+            text-decoration: none; /* 下線を消す */
             color: inherit;
+            cursor: pointer; /* マウスを乗せたら指マークにする */
         }
 
-        /* 行のホバー効果（枠線が変わり、フワッと浮き上がりますがクリックはできません） */
+        /* ホバー効果 */
         .tier-row:hover {
             border-color: #ada5fa;
             background: #ffffff;
@@ -137,7 +133,6 @@
             vertical-align: middle;
         }
 
-        /* 薄い青（#ada5fa）をベースにしたティアバッジ */
         .tier-badge {
             display: inline-block;
             background: #ada5fa;
@@ -149,7 +144,7 @@
             text-align: center;
             box-shadow: 0 4px 12px rgba(173, 165, 250, 0.35);
             letter-spacing: 0.5px;
-            width: 100%; /* セル内で横幅いっぱいに */
+            width: 100%;
         }
 
         .tier-badge.info {
@@ -164,7 +159,6 @@
             padding-left: 15px;
         }
 
-        /* アイコンと文字を並べるための設定 */
         .tier-label {
             font-size: 18px;
             font-weight: 700;
@@ -172,10 +166,9 @@
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
-            gap: 8px; /* アイコンと文字の間の隙間 */
+            gap: 8px;
         }
 
-        /* 🛠 アイコン用のスタイル */
         .brand-icon {
             width: 18px;
             height: 18px;
@@ -183,11 +176,10 @@
             vertical-align: middle;
         }
 
-        /* ボタン用アイコンの調整 */
         .btn-icon {
             width: 22px;
             height: 22px;
-            fill: currentColor; /* 文字と同じ色（白）にする */
+            fill: currentColor;
         }
 
         .tier-value {
@@ -195,39 +187,39 @@
             color: #64748b;
             margin-top: 4px;
             letter-spacing: 0.5px;
-            word-break: break-all; /* 長いURLがはみ出さないように */
+            word-break: break-all;
         }
 
-        /* 👾 Discord公式カラーに合わせたカスタムボタン */
+        /* Discordボタン */
         .action-btn {
             display: block;
             width: 100%;
             text-align: center;
             padding: 16px;
-            background: #5865F2; /* Discordオフィシャルブルー */
+            background: #5865F2;
             color: #ffffff;
             font-weight: 700;
             text-decoration: none;
             border-radius: 14px;
             margin-top: 25px;
-            font-size: 22px; /* ドットで目立つように少しアップ */
+            font-size: 22px;
             letter-spacing: 1.5px;
-            text-transform: uppercase; /* DISCORDを大文字にしてカッコよく */
+            text-transform: uppercase;
             box-shadow: 0 8px 20px rgba(88, 101, 242, 0.25);
             transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px; /* ボタン内のアイコンと文字の隙間 */
+            gap: 10px;
         }
 
         .action-btn:hover {
-            background: #4752C4; /* ホバー時に少し暗い上品なブルーに */
-            transform: translateY(-2px); /* 少し上に浮き上がらせる */
+            background: #4752C4;
+            transform: translateY(-2px);
             box-shadow: 0 12px 24px rgba(88, 101, 242, 0.35);
         }
 
-        /* 🖥️ iframe（埋め込み画面）用のスタイル */
+        /* iframe埋め込み用のスタイル */
         .embed-container {
             margin-top: 30px;
             width: 100%;
@@ -235,18 +227,15 @@
 
         .embed-frame {
             width: 100%;
-            /* 埋め込み先のサイトがスクロールせず綺麗に収まる高さをCSSで指定します。
-              もし下の方が見切れる場合は、ここの「1100px」を「1300px」などに大きくしてください。
-            */
             height: 1100px; 
             border: 1px solid #e2e8f0;
-            border-radius: 16px; /* 全体の雰囲気に合わせて角を丸く */
+            border-radius: 16px;
             background-color: #ffffff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
             display: block;
         }
 
-        /* 📱 【スマホ版：縦向き画面（幅768px以下）用のスタイル上書き】 */
+        /* スマホ用設定 */
         @media screen and (max-width: 768px) {
             body {
                 padding: 16px;
@@ -277,7 +266,7 @@
             }
 
             .tier-row {
-                display: flex; /* スマホではバッジとテキストをフレックスで並べる */
+                display: flex;
                 flex-direction: column;
                 gap: 10px;
                 padding: 16px;
@@ -293,7 +282,6 @@
                 padding-left: 0;
             }
 
-            /* スマホ版での埋め込みの高さ（中身に合わせて調整してください） */
             .embed-frame {
                 height: 1400px;
             }
@@ -313,7 +301,7 @@
             <div class="section-title">H7YT公式サイト</div>
             
             <div class="tier-list">
-                <div class="tier-row">
+                <div class="tier-row" style="cursor: default;">
                     <div class="tier-badge-cell">
                         <span class="tier-badge">TIERについて</span>
                     </div>
@@ -323,7 +311,7 @@
                     </div>
                 </div>
 
-                <div class="tier-row">
+                <a href="https://x.com/CPMPLAYER17243" target="_blank" rel="noopener noreferrer" class="tier-row">
                     <div class="tier-badge-cell">
                         <span class="tier-badge info">X</span>
                     </div>
@@ -334,9 +322,9 @@
                         </div>
                         <div class="tier-value">https://x.com/CPMPLAYER17243</div>
                     </div>
-                </div>
+                </a>
 
-                <div class="tier-row">
+                <a href="https://h7sites.pages.dev/" target="_blank" rel="noopener noreferrer" class="tier-row">
                     <div class="tier-badge-cell">
                         <span class="tier-badge info">サービス</span>
                     </div>
@@ -347,7 +335,7 @@
                         </div>
                         <div class="tier-value">https://h7sites.pages.dev/</div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <a href="https://discord.gg/b3TrZYJD6y" target="_blank" rel="noopener noreferrer" class="action-btn">
