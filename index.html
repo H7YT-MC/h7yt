@@ -235,11 +235,13 @@
 
         .embed-frame {
             width: 100%;
-            height: 450px; /* 埋め込み画面の高さ（お好みに合わせて変更してください） */
+            /* 初期値（読み込み前）の高さ。ここから中身に合わせて自動で伸び縮みします */
+            height: 500px; 
             border: 1px solid #e2e8f0;
             border-radius: 16px; /* 全体の雰囲気に合わせて角を丸く */
             background-color: #ffffff;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            display: block;
         }
 
         /* 📱 【スマホ版：縦向き画面（幅768px以下）用のスタイル上書き】 */
@@ -287,11 +289,6 @@
             .tier-info-cell {
                 display: block;
                 padding-left: 0;
-            }
-
-            /* スマホでは埋め込みの高さを少しコンパクトに */
-            .embed-frame {
-                height: 350px;
             }
         }
     </style>
@@ -352,10 +349,30 @@
             </a>
 
             <div class="embed-container">
-                <iframe class="embed-frame" src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/" title="埋め込みコンテンツ" allowfullscreen></iframe>
+                <iframe id="auto-iframe" class="embed-frame" src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/" title="埋め込みコンテンツ" scrolling="no"></iframe>
             </div>
         </div>
     </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.getElementById('auto-iframe');
+
+            // iframeが読み込まれたタイミングでサイズを計算
+            iframe.addEventListener('load', () => {
+                try {
+                    // 埋め込み先のコンテンツの高さを取得してiframeに適用
+                    const height = iframe.contentWindow.document.documentElement.scrollHeight;
+                    iframe.style.height = height + 'px';
+                } catch (e) {
+                    // もしセキュリティエラー（クロスドメイン制限）が出た場合のセーフティ
+                    console.log("自動調整に失敗しました。デフォルトの高さ、または指定の高さで表示します。");
+                    iframe.style.height = "800px"; // ★自動取得できない場合、スクロールしない適度な長さに固定
+                    iframe.setAttribute('scrolling', 'auto'); // スクロールバーを復活
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
