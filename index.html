@@ -227,6 +227,11 @@
             box-shadow: 0 12px 24px rgba(88, 101, 242, 0.35);
         }
 
+        /* 最下部に追加する、長めのURL専用の間隔微調整クラス */
+        .mt-25 {
+            margin-top: 25px;
+        }
+
         /* 📱 【スマホ版：縦向き画面（幅768px以下）用のスタイル上書き】 */
         @media screen and (max-width: 768px) {
             body {
@@ -279,19 +284,16 @@
 <body>
 
     <div class="mctiers-container">
-        <!-- アバターエリア -->
         <div class="player-sidebar">
             <div class="avatar-glow"></div>
             <img class="player-avatar" src="https://render.crafty.gg/3d/bust/2bdda252-7dc3-45d6-b42a-695a6021364f" alt="Player Avatar">
             <h1 class="player-name">H7YT</h1>
         </div>
 
-        <!-- コンテンツエリア -->
         <div class="content-main">
             <div class="section-title">H7YT公式サイト</div>
             
             <div class="tier-list">
-                <!-- 行1：通常テキスト -->
                 <div class="tier-row">
                     <div class="tier-badge-cell">
                         <span class="tier-badge">TIERについて</span>
@@ -302,7 +304,6 @@
                     </div>
                 </div>
 
-                <!-- 行2：Xのエリア（テキスト化） -->
                 <div class="tier-row">
                     <div class="tier-badge-cell">
                         <span class="tier-badge info">X</span>
@@ -316,7 +317,6 @@
                     </div>
                 </div>
 
-                <!-- 行3：サイト公開サービスのエリア（テキスト化） -->
                 <div class="tier-row">
                     <div class="tier-badge-cell">
                         <span class="tier-badge info">サービス</span>
@@ -331,11 +331,23 @@
                 </div>
             </div>
 
-            <!-- Discordボタン（ここだけリンクとして残しています） -->
             <a href="https://discord.gg/b3TrZYJD6y" target="_blank" rel="noopener noreferrer" class="action-btn">
                 <svg class="brand-icon btn-icon" viewBox="0 0 127.14 96.36"><path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.72-11A68.36,68.36,0,0,1,28,80.78c1.11-.81,2.19-1.68,3.23-2.58A74.12,74.12,0,0,0,96,78.2c1,1,2.12,1.77,3.23,2.58a68.17,68.17,0,0,1-10.75,4.55,79.09,79.09,0,0,0,6.72,11,105.51,105.51,0,0,0,32.61-18.83C129.82,50.75,123.86,27.87,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.83,46,53.83,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.07,46,96.07,53,91,65.69,84.69,65.69Z"/></svg>
                 discord
             </a>
+
+            <div class="tier-row mt-25">
+                <div class="tier-badge-cell">
+                    <span class="tier-badge info">URL</span>
+                </div>
+                <div class="tier-info-cell">
+                    <div class="tier-label">
+                        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        サブドメイン
+                    </div>
+                    <div class="tier-value">https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/</div>
+                </div>
+            </div>
         </div>
     </div>
 
