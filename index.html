@@ -235,8 +235,10 @@
 
         .embed-frame {
             width: 100%;
-            /* 初期値（読み込み前）の高さ。ここから中身に合わせて自動で伸び縮みします */
-            height: 500px; 
+            /* 埋め込み先のサイトがスクロールせず綺麗に収まる高さをCSSで指定します。
+              もし下の方が見切れる場合は、ここの「1100px」を「1300px」などに大きくしてください。
+            */
+            height: 1100px; 
             border: 1px solid #e2e8f0;
             border-radius: 16px; /* 全体の雰囲気に合わせて角を丸く */
             background-color: #ffffff;
@@ -289,6 +291,11 @@
             .tier-info-cell {
                 display: block;
                 padding-left: 0;
+            }
+
+            /* スマホ版での埋め込みの高さ（中身に合わせて調整してください） */
+            .embed-frame {
+                height: 1400px;
             }
         }
     </style>
@@ -349,30 +356,10 @@
             </a>
 
             <div class="embed-container">
-                <iframe id="auto-iframe" class="embed-frame" src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/" title="埋め込みコンテンツ" scrolling="no"></iframe>
+                <iframe class="embed-frame" src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/" title="埋め込みコンテンツ" scrolling="no"></iframe>
             </div>
         </div>
     </div>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const iframe = document.getElementById('auto-iframe');
-
-            // iframeが読み込まれたタイミングでサイズを計算
-            iframe.addEventListener('load', () => {
-                try {
-                    // 埋め込み先のコンテンツの高さを取得してiframeに適用
-                    const height = iframe.contentWindow.document.documentElement.scrollHeight;
-                    iframe.style.height = height + 'px';
-                } catch (e) {
-                    // もしセキュリティエラー（クロスドメイン制限）が出た場合のセーフティ
-                    console.log("自動調整に失敗しました。デフォルトの高さ、または指定の高さで表示します。");
-                    iframe.style.height = "800px"; // ★自動取得できない場合、スクロールしない適度な長さに固定
-                    iframe.setAttribute('scrolling', 'auto'); // スクロールバーを復活
-                }
-            });
-        });
-    </script>
 
 </body>
 </html>
