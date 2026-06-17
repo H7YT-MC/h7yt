@@ -388,18 +388,52 @@
             });
         });
     </script>
-    <div class="embed-container">
-    <div class="section-title">FHISMPの入り方</div>
+              <div class="embed-container">
+                <iframe id="auto-iframe"
+                    class="embed-frame"
+                    src="https://eurbiuoawubirowbuioruwioruwioqruioawubviwoabioarpjmuioavuw.pages.dev/"
+                    title="埋め込みコンテンツ"
+                    scrolling="no">
+                </iframe>
+            </div>
 
-    <img
-        src="https://cdn.discordapp.com/attachments/1512789933448888392/1516737920281608263/Mineraft_26.2_BIG_UPDATE_1.png?ex=6a33bbc3&is=6a326a43&hm=4726c8ff21889955fc5c279dfe60d31c407ccfac9d94217e1decde9c6c946b27&"
-        alt="FHISMPの入り方"
-        style="
-            width:100%;
-            height:auto;
-            border-radius:16px;
-            border:1px solid #e2e8f0;
-            margin-top:15px;
-            display:block;
-        ">
-</div>
+            <!-- FHISMPの入り方 -->
+            <div class="embed-container">
+                <div class="section-title">FHISMPの入り方</div>
+
+                <img
+                    src="https://cdn.discordapp.com/attachments/1512789933448888392/1516737920281608263/Mineraft_26.2_BIG_UPDATE_1.png?ex=6a33bbc3&is=6a326a43&hm=4726c8ff21889955fc5c279dfe60d31c407ccfac9d94217e1decde9c6c946b27&"
+                    alt="FHISMPの入り方"
+                    style="
+                        width:100%;
+                        max-width:100%;
+                        height:auto;
+                        display:block;
+                        margin-top:15px;
+                        border-radius:16px;
+                        border:1px solid #e2e8f0;
+                    ">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const iframe = document.getElementById('auto-iframe');
+
+            iframe.addEventListener('load', () => {
+                try {
+                    const height = iframe.contentWindow.document.documentElement.scrollHeight;
+                    iframe.style.height = height + 'px';
+                } catch (e) {
+                    console.log("自動調整に失敗しました。");
+                    iframe.style.height = "800px";
+                    iframe.setAttribute('scrolling', 'auto');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
